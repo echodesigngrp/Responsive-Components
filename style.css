@@ -63,7 +63,7 @@ h1, h2, p, #slider1, #slider2, #slider3 {
 #slider1 .previous, #slider2 .previous, #slider3 .previous {
 	left: 0;
 }
-#slider1 .pagination, #slider2 .pagination, #slider3 .pagination {
+#slider1 .pagination {
 	list-style: none;
 	position: absolute;
 	bottom: 20px;
@@ -78,13 +78,13 @@ h1, h2, p, #slider1, #slider2, #slider3 {
 	-moz-box-shadow: inset 0 -4px 10px rgba(0, 0, 0, .8), inset 0 13px 0 rgba(255, 255, 255, .1), inset 0 1px 0 rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(0, 0, 0, .5);
 	box-shadow: inset 0 -4px 10px rgba(0, 0, 0, .8), inset 0 13px 0 rgba(255, 255, 255, .1), inset 0 1px 0 rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(0, 0, 0, .5);
 }
-#slider1 .pagination .page, #slider2 .pagination .page, #slider3 .pagination .page {
+#slider1 .pagination .page {
 	float: left;
 	width: 16px;
 	height: 16px;
 	padding: 3px;
 }
-#slider1 .pagination .page a, #slider2 .pagination .page a, #slider3 .pagination .page a {
+#slider1 .pagination .page a {
 	display: block;
 	width: 14px;
 	height: 14px;
@@ -96,8 +96,50 @@ h1, h2, p, #slider1, #slider2, #slider3 {
 	box-shadow: inset 0 -2px 4px rgba(0, 0, 0, .2), inset 0 1px 2px rgba(0, 0, 0, .2), 0 -1px 1px rgba(0, 0, 0, .8);
 	text-indent: -9000px;
 }
-#slider1 .pagination .page.current a, #slider2 .pagination .page.current a, #slider3 .pagination .page.current a {
+#slider1 .pagination .page.current a {
 	background: #fff;
+}
+
+#slider2 .pagination {
+	list-style: none;
+	position: absolute;
+	bottom: -120px;
+	-webkit-transition: bottom .35s ease-in-out;
+	-moz-transition: bottom .35s ease-in-out;
+	transition: bottom .35s ease-in-out;
+	z-index: 15;
+	height: 106px;
+	margin: 0;
+	padding: 3px;
+	border-radius: 3px;
+	background: #000;
+	background: rgba(0, 0, 0, .8);
+	-webkit-box-shadow: inset 0 -4px 10px rgba(0, 0, 0, .8), inset 0 13px 0 rgba(255, 255, 255, .1), inset 0 1px 0 rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(0, 0, 0, .5);
+	-moz-box-shadow: inset 0 -4px 10px rgba(0, 0, 0, .8), inset 0 13px 0 rgba(255, 255, 255, .1), inset 0 1px 0 rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(0, 0, 0, .5);
+	box-shadow: inset 0 -4px 10px rgba(0, 0, 0, .8), inset 0 13px 0 rgba(255, 255, 255, .1), inset 0 1px 0 rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(0, 0, 0, .5);
+}
+#slider2:hover .pagination {
+	bottom: 20px;
+}
+#slider2 .pagination .page {
+	float: left;
+	width: 240px;
+	height: 100px;
+	padding: 3px;
+}
+#slider2 .pagination .page a {
+	display: block;
+}
+#slider2 .pagination .page.current {
+	width: 244px;
+	height: 104px;
+	padding: 1px;
+}
+#slider2 .pagination .page.current a {
+	border: 2px solid #fff;
+}
+#slider2 .pagination .page.current a img {
+	display: block;
 }
 
 #paged_slider {
@@ -175,20 +217,41 @@ h1, h2, p, #slider1, #slider2, #slider3 {
 	#slider1 .next, #slider2 .next, #slider3 .next, #slider1 .previous, #slider2 .previous, #slider3 .previous {
 		top: 130px;
 	}
-	#slider1 .pagination, #slider2 .pagination, #slider3 .pagination {
+	#slider1 .pagination {
 		height: 24px;
 		-webkit-box-shadow: inset 0 -4px 10px rgba(0, 0, 0, .8), inset 0 15px 0 rgba(255, 255, 255, .1), inset 0 1px 0 rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(0, 0, 0, .5);
 		-moz-box-shadow: inset 0 -4px 10px rgba(0, 0, 0, .8), inset 0 15px 0 rgba(255, 255, 255, .1), inset 0 1px 0 rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(0, 0, 0, .5);
 		box-shadow: inset 0 -4px 10px rgba(0, 0, 0, .8), inset 0 15px 0 rgba(255, 255, 255, .1), inset 0 1px 0 rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(0, 0, 0, .5);
 	}
-	#slider1 .pagination .page, #slider2 .pagination .page, #slider3 .pagination .page {
+	#slider1 .pagination .page {
 		width: 20px;
 		height: 20px;
 	}
-	#slider1 .pagination .page a, #slider2 .pagination .page a, #slider3 .pagination .page a {
+	#slider1 .pagination .page a {
 		width: 18px;
 		height: 18px;
 		border-radius: 9px;
+	}
+	
+	#slider2 .pagination {
+		bottom: 20px;
+		height: 56px;
+	}
+	#slider2 .pagination .page {
+		width: 120px;
+		height: 50px;
+	}
+	#slider2 .pagination .page.current {
+		width: 124px;
+		height: 54px;
+		padding: 1px;
+	}
+	#slider2 .pagination .page.current a {
+		border: 2px solid #fff;
+	}
+	#slider2 .pagination .page a img {
+		width: 120px;
+		height: 50px;
 	}
 }
 
@@ -203,20 +266,44 @@ h1, h2, p, #slider1, #slider2, #slider3 {
 	#slider1 .next, #slider2 .next, #slider3 .next, #slider1 .previous, #slider2 .previous, #slider3 .previous {
 		top: 105px;
 	}
-	#slider1 .pagination, #slider2 .pagination, #slider3 .pagination {
+	#slider1 .pagination {
 		height: 24px;
 		-webkit-box-shadow: inset 0 -4px 10px rgba(0, 0, 0, .8), inset 0 15px 0 rgba(255, 255, 255, .1), inset 0 1px 0 rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(0, 0, 0, .5);
 		-moz-box-shadow: inset 0 -4px 10px rgba(0, 0, 0, .8), inset 0 15px 0 rgba(255, 255, 255, .1), inset 0 1px 0 rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(0, 0, 0, .5);
 		box-shadow: inset 0 -4px 10px rgba(0, 0, 0, .8), inset 0 15px 0 rgba(255, 255, 255, .1), inset 0 1px 0 rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255, 255, 255, .2), 0 3px 5px rgba(0, 0, 0, .5);
 	}
-	#slider1 .pagination .page, #slider2 .pagination .page, #slider3 .pagination .page {
+	#slider1 .pagination .page {
 		width: 20px;
 		height: 20px;
 	}
-	#slider1 .pagination .page a, #slider2 .pagination .page a, #slider3 .pagination .page a {
+	#slider1 .pagination .page a {
 		width: 18px;
 		height: 18px;
 		border-radius: 9px;
+	}
+	
+	#slider2 .pagination {
+		bottom: 10px;
+		height: 56px;
+	}
+	#slider2:hover .pagination {
+		bottom: 10px;
+	}
+	#slider2 .pagination .page {
+		width: 120px;
+		height: 50px;
+	}
+	#slider2 .pagination .page.current {
+		width: 124px;
+		height: 54px;
+		padding: 1px;
+	}
+	#slider2 .pagination .page.current a {
+		border: 2px solid #fff;
+	}
+	#slider2 .pagination .page a img {
+		width: 120px;
+		height: 50px;
 	}
 }
 
@@ -235,7 +322,7 @@ h1, h2, p, #slider1, #slider2, #slider3 {
 		font-size: 12px;
 		line-height: 30px;
 	}
-	#slider1 .pagination, #slider2 .pagination, #slider3 .pagination {
+	#slider1 .pagination {
 		display: none;
 	}
 }
@@ -255,7 +342,7 @@ h1, h2, p, #slider1, #slider2, #slider3 {
 		font-size: 10px;
 		line-height: 30px;
 	}
-	#slider1 .pagination, #slider2 .pagination, #slider3 .pagination {
+	#slider1 .pagination {
 		display: none;
 	}
 }
@@ -268,6 +355,12 @@ h1, h2, p, #slider1, #slider2, #slider3 {
 	h2 {
 		font-size: 24px;
 		line-height: 30px;
+	}
+}
+
+@media only screen and (max-width: 599px) {
+	#slider2 .pagination {
+		display: none;
 	}
 }
 

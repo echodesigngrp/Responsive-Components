@@ -37,7 +37,20 @@
 					'containerClass': 'container',
 					'infinite': true,
 					'touch': false,
-					'keyboard': false
+					'keyboard': false,
+					'pagination': true,
+					'paginationClass': 'pagination',
+					'paginationPageClass': 'page',
+					'buildPageButtonForIndex': function (i, slider) {
+						var thumb = slider.slides.eq(i).attr('data-thumb');
+						return $('<li class="'+slider.settings.paginationPageClass+(i == slider.currentIndex ? ' current' : '')+'"><a href="#" data-index="'+i+'"><img src="'+thumb+'" /></a></li>');
+					},
+					'onResize': function (slider) {
+						var paginationWidth = slider.pagination.width();
+						var width = slider.el.width();
+						var left = (width - paginationWidth) / 2
+						slider.pagination.css('left', left);
+					}
 				});
 				
 				$('#slider3').responsiveSlider({
@@ -75,12 +88,12 @@
 		</section>
 		
 		<h2>Demo 2</h2>
-		<p style="text-align: center"><strong>Features</strong>: infinite</p>
+		<p style="text-align: center"><strong>Features</strong>: infinite and custom pagination</p>
 		
 		<section id="slider2">
-			<img src="photo1.jpg" alt="" class="slide" />
-			<img src="photo2.jpg" alt="" class="slide" />
-			<img src="photo3.jpg" alt="" class="slide" />
+			<img src="photo1.jpg" alt="" data-thumb="photo1_thumb.jpg" class="slide" />
+			<img src="photo2.jpg" alt="" data-thumb="photo2_thumb.jpg" class="slide" />
+			<img src="photo3.jpg" alt="" data-thumb="photo3_thumb.jpg" class="slide" />
 		</section>
 		
 		<h2>Demo 3</h2>
