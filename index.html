@@ -46,7 +46,7 @@
 			#slider1, #slider2, #slider3 {
 				margin-bottom: 10px;
 			}
-			.slide {
+			#slider1 .slide, #slider2 .slide, #slider3 .slide {
 				display: block;
 				width: 960px;
 				height: 400px;
@@ -54,7 +54,7 @@
 			.container {
 				z-index: 10;
 			}
-			.next, .previous {
+			#slider1 .next, #slider2 .next, #slider3 .next, #slider1 .previous, #slider2 .previous, #slider3 .previous {
 				position: absolute;
 				top: 180px;
 				z-index: 20;
@@ -69,22 +69,84 @@
 				text-transform: uppercase;
 				text-align: center;
 			}
-			.next {
+			#slider1 .next, #slider2 .next, #slider3 .next {
 				right: 0;
 			}
-			.previous {
+			#slider1 .previous, #slider2 .previous, #slider3 .previous {
 				left: 0;
+			}
+			
+			#paged_slider {
+				width: 960px;
+				margin: 0 auto;
+				border: 3px solid #5A1B52;
+				border-bottom: none;
+			}
+			#paged_slider .slide {
+				display: block;
+				width: 320px;
+				height: 180px;
+				padding: 10px;
+				border-bottom: 30px solid #5A1B52;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			#paged_slider .slide h1 {
+				margin: 0;
+				padding: 0;
+				font-family: Helvetica-Light, HelveticaNeue-Light, Helvetica Neue, Helvetica, Arial, sans-serif;
+				font-size: 24px;
+				line-height: 30px;
+				font-weight: normal;
+				text-align: left;
+			}
+			#paged_slider .slide p {
+				width: auto;
+				padding: 0;
+			}
+			.container {
+				z-index: 10;
+			}
+			#paged_slider .bar {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				z-index: 15;
+				width: 100%;
+				height: 30px;
+				background: #5A1B52;
+			}
+			#paged_slider .next, #paged_slider .previous {
+				position: absolute;
+				bottom: 0;
+				z-index: 20;
+				height: 30px;
+				color: #fff;
+				font: bold 14px/40px Helvetica;
+				line-height: 30px;
+				text-decoration: none;
+				text-transform: uppercase;
+				text-align: center;
+			}
+			#paged_slider .next {
+				right: 6px;
+				text-align: right;
+			}
+			#paged_slider .previous {
+				left: 6px;
+				text-align: left;
 			}
 			
 			@media only screen and (min-width: 720px) and (max-width: 959px) {
 				h1, h2, p, #slider1, #slider2, #slider3 {
 					width: 720px;
 				}
-				.slide {
+				#slider1 .slide, #slider2 .slide, #slider3 .slide {
 					width: 720px;
 					height: 300px;
 				}
-				.next, .previous {
+				#slider1 .next, #slider2 .next, #slider3 .next, #slider1 .previous, #slider2 .previous, #slider3 .previous {
 					top: 130px;
 				}
 			}
@@ -93,11 +155,11 @@
 				h1, h2, p, #slider1, #slider2, #slider3 {
 					width: 600px;
 				}
-				.slide {
+				#slider1 .slide, #slider2 .slide, #slider3 .slide {
 					width: 600px;
 					height: 250px;
 				}
-				.next, .previous {
+				#slider1 .next, #slider2 .next, #slider3 .next, #slider1 .previous, #slider2 .previous, #slider3 .previous {
 					top: 105px;
 				}
 			}
@@ -106,11 +168,11 @@
 				h1, h2, p, #slider1, #slider2, #slider3 {
 					width: 480px;
 				}
-				.slide {
+				#slider1 .slide, #slider2 .slide, #slider3 .slide {
 					width: 480px;
 					height: 200px;
 				}
-				.next, .previous {
+				#slider1 .next, #slider2 .next, #slider3 .next, #slider1 .previous, #slider2 .previous, #slider3 .previous {
 					top: 118px;
 					width: 80px;
 					height: 30px;
@@ -123,11 +185,11 @@
 				h1, h2, p, #slider1, #slider2, #slider3 {
 					width: 320px;
 				}
-				.slide {
+				#slider1 .slide, #slider2 .slide, #slider3 .slide {
 					width: 320px;
 					height: 133px;
 				}
-				.next, .previous {
+				#slider1 .next, #slider2 .next, #slider3 .next, #slider1 .previous, #slider2 .previous, #slider3 .previous {
 					top: 98px;
 					width: 80px;
 					height: 30px;
@@ -144,6 +206,63 @@
 				h2 {
 					font-size: 24px;
 					line-height: 30px;
+				}
+			}
+			
+			@media only screen and (min-width: 720px) and (max-width: 959px) {
+				#paged_slider {
+					width: 720px;
+				}
+				#paged_slider .slide {
+					width: 240px;
+				}
+				#paged_slider .slide p {
+					height: 100px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
+			
+			@media only screen and (min-width: 600px) and (max-width: 719px) {
+				#paged_slider {
+					width: 600px;
+				}
+				#paged_slider .slide {
+					width: 300px;
+				}
+				#paged_slider .slide p {
+					height: 100px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
+			
+			@media only screen and (min-width: 480px) and (max-width: 599px) {
+				#paged_slider {
+					width: 480px;
+				}
+				#paged_slider .slide {
+					width: 240px;
+				}
+				#paged_slider .slide p {
+					height: 100px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
+			
+			@media only screen and (max-width: 479px) {
+				#paged_slider {
+					width: 320px;
+				}
+				#paged_slider .slide {
+					width: 320px;
+					height: 160px;
+				}
+				#paged_slider .slide p {
+					height: 80px;
+					overflow: hidden;
+					text-overflow: ellipsis;
 				}
 			}
 		</style>
@@ -175,6 +294,15 @@
 					'automate': true,
 					'keyboard': false,
 					'navigation': false
+				});
+				$('#paged_slider').responsiveSlider({
+					'nextText': 'older articles &raquo;',
+					'previousText': '&laquo; newer articles',
+					'nextClass': 'next',
+					'previousClass': 'previous',
+					'containerClass': 'container',
+					'infinite': false,
+					'keyboard': true
 				});
 			});
 		</script>
@@ -210,6 +338,33 @@
 			<img src="photo1.jpg" alt="" class="slide" />
 			<img src="photo2.jpg" alt="" class="slide" />
 			<img src="photo3.jpg" alt="" class="slide" />
+		</section>
+		
+		<h2>Demo 4</h2>
+		<p style="text-align: center"><strong>Features</strong>: keyboard access, touch, multiple slides per view, and custom next/previous text</p>
+		
+		<section id="paged_slider">
+			<article class="slide">
+				<h1>Lorem Ipsum</h1>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.</p>
+			</article>
+			<article class="slide">
+				<h1>Lorem Ipsum</h1>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.</p>
+			</article>
+			<article class="slide">
+				<h1>Lorem Ipsum</h1>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.</p>
+			</article>
+			<article class="slide">
+				<h1>Lorem Ipsum</h1>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.</p>
+			</article>
+			<article class="slide">
+				<h1>Lorem Ipsum</h1>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.</p>
+			</article>
+			<div class="bar"></div>
 		</section>
 		
 		<p style="text-align: center; font-size: 12px;">ResponsiveSlider.js is a product of <a href="http://echodesigngroup.com">Echo Design Group</a></p>
