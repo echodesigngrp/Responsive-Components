@@ -19,7 +19,8 @@ jQuery.fn.responsiveSlider = function (o) {
 		'keyboard': false,
 		'touch': true,
 		'onChange': function () { },
-		'onResize': function () { }
+		'onResize': function () { },
+		'buildPageButtonForIndex': null
 	};
 	$.extend(settings, o);
 	
@@ -172,8 +173,10 @@ jQuery.fn.responsiveSlider = function (o) {
 		slider.updatePagination = function () {
 			if (slider.settings.pagination) {
 				slider.pagination.find('li').remove();
+				var page;
 				for (var i=0, len=slider.totalSlides; i<len; i++) {
-					slider.pagination.append('<li class="'+slider.settings.paginationPageClass+(i == slider.currentIndex ? ' current' : '')+'"><a href="#" data-index="'+i+'">'+(i + 1)+'</a></li>');
+					page = slider.settings.buildPageButtonForIndex ? slider.settings.buildPageButtonForIndex(i, slider) : $('<li class="'+slider.settings.paginationPageClass+(i == slider.currentIndex ? ' current' : '')+'"><a href="#" data-index="'+i+'">'+(i + 1)+'</a></li>');
+					slider.pagination.append(page);
 				}
 				slider.pagination.find('a').click(function () {
 					var index = parseInt($(this).attr('data-index'));
