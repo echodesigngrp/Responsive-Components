@@ -3,7 +3,6 @@ jQuery.fn.responsiveSlider = function (o) {
 	
 	var settings = {
 		'slideClass': 'slide',
-		'slidesPerPage': 1,
 		'infinite': false,
 		'navigation': true,
 		'containerClass': 'responsiveSliderContainer',
@@ -28,10 +27,20 @@ jQuery.fn.responsiveSlider = function (o) {
 		slider.el 			= $(this);
 		slider.slides 		= slider.el.find('.'+settings.slideClass);
 		slider.currentIndex = 0;
-		slider.totalSlides 	= slider.slides.size();
 		slider.settings 	= settings;
 		
 		//METHODS
+		slider.recalculateTotalSlides = function () {
+			if (slider.slides.eq(0).outerWidth() == slider.el.width()) {
+				slider.totalSlides = slider.slides.size();
+			}
+			else {
+				var slides = slider.slides.size();
+				var width  = slider.slides.eq(0).outerWidth();
+				var slidesPerPage = slider.el.width() / width;
+				slider.totalSlides = Math.ceil(slides / slidesPerPage);
+			}
+		};
 		var width = slider.el.width();
 		slider.resize = function (force) {
 			//set width and heights
@@ -39,11 +48,12 @@ jQuery.fn.responsiveSlider = function (o) {
 			if (force || width != nWidth) {
 				width = nWidth;
 				
+				slider.recalculateTotalSlides();
 				slider.container.width(width * slider.totalSlides);
-				slider.el.height(slider.slides.eq(0).height());
+				slider.el.height(slider.slides.eq(0).outerHeight());
 				
 				//reposition slide
-				slider.slideTo(slider.currentIndex, true, true);
+				slider.slideTo(slider.currentIndex < slider.totalSlides - 1 ? slider.currentIndex : slider.totalSlides - 1, true, true);
 			}
 		};
 		slider.previous = function () {
@@ -165,6 +175,8 @@ jQuery.fn.responsiveSlider = function (o) {
 		slider.slides.each(function () { $(this).appendTo(slider.container).css('float', 'left'); });
 		slider.container.appendTo(slider.el);
 		slider.el.css('overflow', 'hidden');
+		
+		slider.recalculateTotalSlides();
 		
 		//add navigation
 		if (slider.settings.navigation) {
