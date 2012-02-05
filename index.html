@@ -42,8 +42,9 @@
 					'paginationClass': 'pagination',
 					'paginationPageClass': 'page',
 					'buildPageButtonForIndex': function (i, slider) {
-						var thumb = slider.slides.eq(i).attr('data-thumb');
-						return $('<li class="'+slider.settings.paginationPageClass+(i == slider.currentIndex ? ' current' : '')+'"><a href="#" data-index="'+i+'"><img src="'+thumb+'" /></a></li>');
+						var thumb  = slider.slides.eq(i).attr('data-thumb');
+						var square = slider.slides.eq(i).attr('data-square');
+						return $('<li class="'+slider.settings.paginationPageClass+(i == slider.currentIndex ? ' current' : '')+'"><a href="#" data-index="'+i+'"><img src="'+thumb+'" class="thumb" /><img src="'+square+'" class="square" /></a></li>');
 					},
 					'onResize': function (slider) {
 						var paginationWidth = slider.pagination.width();
@@ -91,9 +92,9 @@
 		<p style="text-align: center"><strong>Features</strong>: infinite and custom pagination</p>
 		
 		<section id="slider2">
-			<img src="photo1.jpg" alt="" data-thumb="photo1_thumb.jpg" class="slide" />
-			<img src="photo2.jpg" alt="" data-thumb="photo2_thumb.jpg" class="slide" />
-			<img src="photo3.jpg" alt="" data-thumb="photo3_thumb.jpg" class="slide" />
+			<img src="photo1.jpg" alt="" data-thumb="photo1_thumb.jpg" data-square="photo1_square.jpg" class="slide" />
+			<img src="photo2.jpg" alt="" data-thumb="photo2_thumb.jpg" data-square="photo2_square.jpg" class="slide" />
+			<img src="photo3.jpg" alt="" data-thumb="photo3_thumb.jpg" data-square="photo3_square.jpg" class="slide" />
 		</section>
 		
 		<h2>Demo 3</h2>
