@@ -121,6 +121,9 @@ h1, h2, p, #slider1, #slider2, #slider3 {
 #slider2:hover .pagination {
 	bottom: 20px;
 }
+#slider2.touch .pagination {
+	bottom: 20px;
+}
 #slider2 .pagination .page {
 	float: left;
 	width: 240px;

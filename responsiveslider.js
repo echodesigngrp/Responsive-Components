@@ -198,6 +198,7 @@ jQuery.fn.responsiveSlider = function (o) {
 		slider.slides.each(function () { $(this).appendTo(slider.container).css('float', 'left'); });
 		slider.container.appendTo(slider.el);
 		slider.el.css('overflow', 'hidden');
+		if ('ontouchstart' in document.documentElement) slider.el.addClass('touch');
 		
 		slider.recalculateTotalSlides();
 		
