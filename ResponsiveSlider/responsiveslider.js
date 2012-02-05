@@ -143,6 +143,8 @@ jQuery.fn.responsiveSlider = function (o) {
 			if (slide > slider.totalSlides - 1) slide = slider.totalSlides - 1;
 			if (slide < 0) slide = 0;
 			slider.slideTo(slide);
+			
+			slider.resetLoop();
 		},
 		slider.insertBefore = function (slide) {
 			//add slide
@@ -183,6 +185,18 @@ jQuery.fn.responsiveSlider = function (o) {
 					slider.slideTo(index);
 					return false;
 				});
+			}
+		};
+		slider.resetLoop = function () {
+			if (slider.settings.automate) {
+				if (slider.loop) {
+					clearInterval(slider.loop);
+					slider.loop = null;
+				}
+				
+				slider.loop = setInterval(function () {
+					slider.next();
+				}, slider.settings.displayTime + slider.settings.animationTime);
 			}
 		};
 		
@@ -263,9 +277,7 @@ jQuery.fn.responsiveSlider = function (o) {
 		}
 		
 		if (slider.settings.automate) {
-			setInterval(function () {
-				slider.next();
-			}, slider.settings.displayTime + slider.settings.animationTime)
+			slider.resetLoop();
 		}
 		
 		//set size of container
