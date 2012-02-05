@@ -11,11 +11,16 @@ jQuery.fn.responsiveSlider = function (o) {
 		'previousClass': 'responsiveSliderPrevious',
 		'nextText': 'next',
 		'previousText': 'previous',
+		'automate': false,
+		'displayTime': 5000,
+		'animationTime': 350,
 		'keyboard': false,
 		'touch': true,
 		'onChange': function () { }
 	};
 	$.extend(settings, o);
+	
+	if (settings.automate) settings.infinite = true;
 	
 	this.each(function () {
 		//PROPERTIES
@@ -70,7 +75,7 @@ jQuery.fn.responsiveSlider = function (o) {
 			var width = slider.el.width();
 			var left = 0 - (width * slider.currentIndex);
 			if (!dontAnimate) {
-				slider.container.animate({'left': left}, 350);
+				slider.container.animate({'left': left}, slider.settings.animationTime);
 			}
 			else {
 				slider.container.css({'left': left});
@@ -211,6 +216,12 @@ jQuery.fn.responsiveSlider = function (o) {
 				startX = null;
 				slider.snapToClosest(direction);
 			};
+		}
+		
+		if (slider.settings.automate) {
+			setInterval(function () {
+				slider.next();
+			}, slider.settings.displayTime + slider.settings.animationTime)
 		}
 		
 		//set size of container
