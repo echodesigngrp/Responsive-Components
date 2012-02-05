@@ -5,6 +5,9 @@ jQuery.fn.responsiveSlider = function (o) {
 		'slideClass': 'slide',
 		'infinite': false,
 		'navigation': true,
+		'pagination': false,
+		'paginationClass': 'responsiveSliderPagination',
+		'paginationPageClass': 'responsiveSliderPaginationPage',
 		'containerClass': 'responsiveSliderContainer',
 		'nextClass': 'responsiveSliderNext',
 		'previousClass': 'responsiveSliderPrevious',
@@ -15,7 +18,8 @@ jQuery.fn.responsiveSlider = function (o) {
 		'animationTime': 350,
 		'keyboard': false,
 		'touch': true,
-		'onChange': function () { }
+		'onChange': function () { },
+		'onResize': function () { }
 	};
 	$.extend(settings, o);
 	
@@ -54,6 +58,8 @@ jQuery.fn.responsiveSlider = function (o) {
 				
 				//reposition slide
 				slider.slideTo(slider.currentIndex < slider.totalSlides - 1 ? slider.currentIndex : slider.totalSlides - 1, true, true);
+				
+				if (slider.settings.onResize) slider.settings.onResize(slider);
 			}
 		};
 		slider.previous = function () {
@@ -109,6 +115,7 @@ jQuery.fn.responsiveSlider = function (o) {
 					slider.el.find('.'+slider.settings.nextClass).show();
 				}
 			}
+			slider.updatePagination();
 			
 			if (!didntChange) {
 				settings.onChange(slider);
@@ -162,6 +169,19 @@ jQuery.fn.responsiveSlider = function (o) {
 			slider.resize(true);
 			slider.slideTo(slider.currentIndex, true, true);
 		};
+		slider.updatePagination = function () {
+			if (slider.settings.pagination) {
+				slider.pagination.find('li').remove();
+				for (var i=0, len=slider.totalSlides; i<len; i++) {
+					slider.pagination.append('<li class="'+slider.settings.paginationPageClass+(i == slider.currentIndex ? ' current' : '')+'"><a href="#" data-index="'+i+'">'+(i + 1)+'</a></li>');
+				}
+				slider.pagination.find('a').click(function () {
+					var index = parseInt($(this).attr('data-index'));
+					slider.slideTo(index);
+					return false;
+				});
+			}
+		};
 		
 		//INITIALIZE SLIDER
 		
@@ -191,6 +211,14 @@ jQuery.fn.responsiveSlider = function (o) {
 				slider.next();
 				return false;
 			});
+		}
+		
+		//add pagination
+		if (slider.settings.pagination) {
+			slider.pagination = $('<ul class="'+slider.settings.paginationClass+'"></ul>');
+			slider.el.append(slider.pagination);
+			
+			slider.updatePagination();
 		}
 		
 		if (slider.settings.keyboard) {
