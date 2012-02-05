@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8"/>
-		<title></title>
+		<title>ResponsiveSlider.js from Echo Design Group</title>
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -15,8 +15,31 @@
 			body {
 				margin: 0;
 				padding: 0;
+				
+				font: 14px/20px Helvetica-Light, HelveticaNeue-Light, Helvetica Neue, Helvetica, Arial, sans-serif;
 			}
-			#slider {
+			h1 {
+				padding: 10px 0 0;
+				font-size: 48px;
+				line-height: 50px;
+				font-weight: bold;
+				text-align: center;
+			}
+			h2 {
+				padding: 0 0 20px;
+				font-size: 36px;
+				line-height: 40px;
+				font-weight: normal;
+				text-align: center;
+			}
+			p {
+				padding: 10px 0;
+			}
+			.smalltext {
+				font-size: 11px;
+				text-align: center;
+			}
+			h1, h2, p, #slider {
 				width: 960px;
 				margin: 0 auto;
 			}
@@ -51,7 +74,7 @@
 			}
 			
 			@media only screen and (min-width: 720px) and (max-width: 959px) {
-				#slider {
+				h1, h2, p, #slider {
 					width: 720px;
 				}
 				.slide {
@@ -64,7 +87,7 @@
 			}
 			
 			@media only screen and (min-width: 600px) and (max-width: 719px) {
-				#slider {
+				h1, h2, p, #slider {
 					width: 600px;
 				}
 				.slide {
@@ -77,7 +100,7 @@
 			}
 			
 			@media only screen and (min-width: 480px) and (max-width: 599px) {
-				#slider {
+				h1, h2, p, #slider {
 					width: 480px;
 				}
 				.slide {
@@ -94,7 +117,7 @@
 			}
 			
 			@media only screen and (max-width: 479px) {
-				#slider {
+				h1, h2, p, #slider {
 					width: 320px;
 				}
 				.slide {
@@ -106,6 +129,17 @@
 					width: 80px;
 					height: 30px;
 					font-size: 10px;
+					line-height: 30px;
+				}
+			}
+			
+			@media only screen and (max-width: 599px) {
+				h1 {
+					font-size: 36px;
+					line-height: 40px;
+				}
+				h2 {
+					font-size: 24px;
 					line-height: 30px;
 				}
 			}
@@ -127,13 +161,18 @@
 	</head>
 	
 	<body lang="en">
-		<div id="container">
-			<section id="slider">
-				<img src="photo1.jpg" alt="" class="slide" />
-				<img src="photo2.jpg" alt="" class="slide" />
-				<img src="photo3.jpg" alt="" class="slide" />
-			</section>
-		</div>
+		<h1>Responsive Slider</h1>
+		<p>A simple script to create a responsive slider. Keyboard shortcuts, touch enabled, and expandable through lazy-loading methods. More documentation coming soon.</p>
+		
+		<h2>Demo 1</h2>
+		
+		<section id="slider">
+			<img src="photo1.jpg" alt="" class="slide" />
+			<img src="photo2.jpg" alt="" class="slide" />
+			<img src="photo3.jpg" alt="" class="slide" />
+		</section>
+		
+		<p class="smalltext">ResponsiveSlider.js is a product of <a href="http://echodesigngroup.com">Echo Design Group</a></p>
 	</body>
 	
 </html>
