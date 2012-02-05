@@ -19,7 +19,7 @@
 				font: 14px/20px Helvetica-Light, HelveticaNeue-Light, Helvetica Neue, Helvetica, Arial, sans-serif;
 			}
 			h1 {
-				padding: 10px 10px 0;
+				padding: 10px;
 				font-size: 48px;
 				line-height: 50px;
 				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -27,7 +27,7 @@
 				text-align: center;
 			}
 			h2 {
-				padding: 0 10px 20px;
+				padding: 0 10px 10px;
 				font-size: 36px;
 				line-height: 40px;
 				font-weight: normal;
@@ -36,12 +36,15 @@
 			p {
 				padding: 10px;
 			}
-			h1, h2, p, #slider {
+			h1, h2, p, #slider1, #slider2 {
 				width: 960px;
 				margin: 0 auto;
 				-webkit-box-sizing: border-box;
 				-moz-box-sizing: border-box;
 				box-sizing: border-box;
+			}
+			#slider1, #slider2 {
+				margin-bottom: 10px;
 			}
 			.slide {
 				display: block;
@@ -74,7 +77,7 @@
 			}
 			
 			@media only screen and (min-width: 720px) and (max-width: 959px) {
-				h1, h2, p, #slider {
+				h1, h2, p, #slider1, #slider2 {
 					width: 720px;
 				}
 				.slide {
@@ -87,7 +90,7 @@
 			}
 			
 			@media only screen and (min-width: 600px) and (max-width: 719px) {
-				h1, h2, p, #slider {
+				h1, h2, p, #slider1, #slider2 {
 					width: 600px;
 				}
 				.slide {
@@ -100,7 +103,7 @@
 			}
 			
 			@media only screen and (min-width: 480px) and (max-width: 599px) {
-				h1, h2, p, #slider {
+				h1, h2, p, #slider1, #slider2 {
 					width: 480px;
 				}
 				.slide {
@@ -117,7 +120,7 @@
 			}
 			
 			@media only screen and (max-width: 479px) {
-				h1, h2, p, #slider {
+				h1, h2, p, #slider1, #slider2 {
 					width: 320px;
 				}
 				.slide {
@@ -149,12 +152,21 @@
 		<script src="responsiveslider.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			$(function () {
-				$('#slider').responsiveSlider({
+				$('#slider1').responsiveSlider({
 					'nextClass': 'next',
 					'previousClass': 'previous',
 					'containerClass': 'container',
 					'infinite': false,
 					'keyboard': true
+				});
+			});
+			$(function () {
+				$('#slider2').responsiveSlider({
+					'nextClass': 'next',
+					'previousClass': 'previous',
+					'containerClass': 'container',
+					'infinite': true,
+					'keyboard': false
 				});
 			});
 		</script>
@@ -165,8 +177,18 @@
 		<p>A simple script to create a responsive slider. Keyboard shortcuts, touch enabled, and expandable through lazy-loading methods. More documentation coming soon.</p>
 		
 		<h2>Demo 1</h2>
+		<p style="text-align: center"><strong>Features</strong>: keyboard access (right and left arrows) and touch</p>
 		
-		<section id="slider">
+		<section id="slider1">
+			<img src="photo1.jpg" alt="" class="slide" />
+			<img src="photo2.jpg" alt="" class="slide" />
+			<img src="photo3.jpg" alt="" class="slide" />
+		</section>
+		
+		<h2>Demo 2</h2>
+		<p style="text-align: center"><strong>Features</strong>: touch and infinite</p>
+		
+		<section id="slider2">
 			<img src="photo1.jpg" alt="" class="slide" />
 			<img src="photo2.jpg" alt="" class="slide" />
 			<img src="photo3.jpg" alt="" class="slide" />
