@@ -3,11 +3,11 @@
 
 	<head>
 		<meta charset="utf-8"/>
-		<title>Responsive Components from Echo Design Group</title>
+		<title>ResponsiveSlider.js from Echo Design Group</title>
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link rel="stylesheet" media="all" href="style.css" />
+		<link rel="stylesheet" media="all" href="../style.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 		
@@ -75,10 +75,63 @@
 	</head>
 	
 	<body lang="en">
-		<h1>Responsive Components</h1>
-		<h2><a href="ResponsiveSlider/index.html">Slider</a></h2>
+		<h1>Responsive Slider</h1>
 		<p>A simple script to create a responsive slider. Keyboard shortcuts, touch enabled, and expandable through lazy-loading methods. More documentation coming soon.</p>
 		<p style="text-align: center">You can download or fork this at <a href="http://github.com/echodesigngrp/responsive-components">http://github.com/echodesigngrp/responsive-components</a></p>
+		
+		<h2>Demo 1</h2>
+		<p style="text-align: center"><strong>Features</strong>: pagination, keyboard access (right and left arrows) and touch</p>
+		
+		<section id="slider1">
+			<img src="photo1.jpg" alt="" class="slide" />
+			<img src="photo2.jpg" alt="" class="slide" />
+			<img src="photo3.jpg" alt="" class="slide" />
+		</section>
+		
+		<h2>Demo 2</h2>
+		<p style="text-align: center"><strong>Features</strong>: infinite and custom pagination</p>
+		
+		<section id="slider2">
+			<img src="photo1.jpg" alt="" data-thumb="photo1_thumb.jpg" data-square="photo1_square.jpg" class="slide" />
+			<img src="photo2.jpg" alt="" data-thumb="photo2_thumb.jpg" data-square="photo2_square.jpg" class="slide" />
+			<img src="photo3.jpg" alt="" data-thumb="photo3_thumb.jpg" data-square="photo3_square.jpg" class="slide" />
+		</section>
+		
+		<h2>Demo 3</h2>
+		<p style="text-align: center"><strong>Features</strong>: touch, automate, and no navigation</p>
+		
+		<section id="slider3">
+			<img src="photo1.jpg" alt="" class="slide" />
+			<img src="photo2.jpg" alt="" class="slide" />
+			<img src="photo3.jpg" alt="" class="slide" />
+		</section>
+		
+		<h2>Demo 4</h2>
+		<p style="text-align: center"><strong>Features</strong>: keyboard access, touch, multiple slides per view, and custom next/previous text</p>
+		
+		<section id="paged_slider">
+			<article class="slide">
+				<h1>Lorem Ipsum</h1>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.</p>
+			</article>
+			<article class="slide">
+				<h1>Lorem Ipsum</h1>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.</p>
+			</article>
+			<article class="slide">
+				<h1>Lorem Ipsum</h1>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.</p>
+			</article>
+			<article class="slide">
+				<h1>Lorem Ipsum</h1>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.</p>
+			</article>
+			<article class="slide">
+				<h1>Lorem Ipsum</h1>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum.</p>
+			</article>
+			<div class="bar"></div>
+		</section>
 		
 		<p style="text-align: center; font-size: 12px;">ResponsiveSlider.js is a product of <a href="http://echodesigngroup.com">Echo Design Group</a></p>
 	</body>
