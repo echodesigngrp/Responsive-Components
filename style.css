@@ -38,6 +38,7 @@ h1, h2, p, #slider1, #slider2, #slider3 {
 	margin-bottom: 10px;
 	background: #eee;
 	-webkit-box-shadow: inset 0 5px 15px rgba(0, 0, 0, .25);
+	-webkit-transform-style: preserve-3d;
 }
 #slider1 .slide, #slider2 .slide, #slider3 .slide {
 	display: block;
@@ -65,8 +66,14 @@ h1, h2, p, #slider1, #slider2, #slider3 {
 #slider1 .next, #slider2 .next, #slider3 .next {
 	right: 0;
 }
+#slider1 .next:active, #slider2 .next:active, #slider3 .next:active {
+	background: rgba(255, 255, 255, .7);
+}
 #slider1 .previous, #slider2 .previous, #slider3 .previous {
 	left: 0;
+}
+#slider1 .previous:active, #slider2 .previous:active, #slider3 .previous:active {
+	background: rgba(255, 255, 255, .7);
 }
 #slider1 .pagination {
 	list-style: none;
