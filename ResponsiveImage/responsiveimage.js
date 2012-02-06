@@ -4,6 +4,7 @@ jQuery.fn.responsiveImage = function (o) {
 	var settings = {
 		'steps': new Array(
 			['desktop', 960],
+			['tablet-retina', 720, 2],
 			['tablet', 720],
 			['small-tablet', 600],
 			['mobile-retina', 320, 2]
