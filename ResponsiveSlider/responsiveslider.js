@@ -264,26 +264,35 @@ jQuery.fn.responsiveSlider = function (o) {
 		}
 		
 		if (slider.settings.touch && 'ontouchstart' in document.documentElement) {
+			var touchStarted = false;
 			var startX = null;
 			var startLeft = null;
 			var direction = null;
 			var x = null;
 			
 			slider.el.get(0).ontouchstart = function (e) {
-				startX = e.touches[0].pageX;
-				startLeft = slider.container.offset().left;
+				if ($(e.target).hasClass(slider.settings.slideClass)) {
+					touchStarted = true;
+					startX = e.touches[0].pageX;
+					startLeft = slider.container.offset().left;
+				}
 			};
 			slider.el.get(0).ontouchmove = function (e) {
-				x = e.touches[0].pageX;
-				if (Math.abs(x - startX) > 10) {
-					slider.container.css('left', startLeft + (x - startX));
-					return false;
+				if (touchStarted) {
+					x = e.touches[0].pageX;
+					if (Math.abs(x - startX) > 10) {
+						slider.container.css('left', startLeft + (x - startX));
+						return false;
+					}
 				}
 			};
 			slider.el.get(0).ontouchend = function (e) {
-				direction = x - startX > 0 ? 'positive' : 'negative';
-				startX = null;
-				slider.snapToClosest(direction);
+				if (touchStarted) {
+					direction = x - startX > 0 ? 'positive' : 'negative';
+					startX = null;
+					slider.snapToClosest(direction);
+				}
+				touchStarted = false;
 			};
 		}
 		
