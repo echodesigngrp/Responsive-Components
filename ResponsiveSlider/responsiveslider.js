@@ -153,14 +153,6 @@ jQuery.fn.responsiveSlider = function (o) {
 					slide = slider.totalSlides - 1;
 				}
 			}
-			if (slide < 0) {
-				if (slider.settings.infinite) {
-					slide = slider.totalSlides - 1;
-				}
-				else {
-					slide = 0;
-				}
-			}
 			slider.slideTo(slide);
 			
 			slider.resetLoop();
