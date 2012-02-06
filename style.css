@@ -9,6 +9,15 @@ a {
 	-webkit-tap-highlight-color: transparent;
 	color: #448ec2;
 }
+
+.breadcrumbs {
+	background: #eee;
+	border-bottom: 1px solid #ccc;
+	font-size: 11px;
+	line-height: 30px;
+	text-align: center;
+	text-transform: uppercase;
+}
 h1 {
 	padding: 10px;
 	font-size: 48px;
