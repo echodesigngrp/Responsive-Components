@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>ResponsiveImage.js by Echo Design Group</title>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" media="all" href="../style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+		
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			.container {
+				width: 960px;
+				margin: 0 auto;
+			}
+			.container img {
+				width: 100%;
+			}
+			
+			@media only screen and (min-width: 720px) and (max-width: 959px) {
+				.container {
+					width: 720px;
+				}
+			}
+			@media only screen and (min-width: 600px) and (max-width: 719px) {
+				.container {
+					width: 600px;
+				}
+			}
+			@media only screen and (min-width: 480px) and (max-width: 599px) {
+				.container {
+					width: 480px;
+				}
+			}
+			@media only screen and (max-width: 479px) {
+				.container {
+					width: auto;
+					margin: 0 10px;
+				}
+			}
+		</style>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript"></script>
+		<script src="responsiveimage.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function () {
+				$('img').responsiveImage();
+			});
+		</script>
+	</head>
+	
+	<body lang="en">
+		<h1>Responsive Image</h1>
+		<p>This is a simple solution for mobile-first images. Specify the mobile image, and provide data- attributes for any higher res images needed. Includes support for retina images. This makes sure that the browser only loads what is necessary.</p>
+		<p style="text-align: center">You can download or fork this at <a href="http://github.com/echodesigngrp/responsive-components">http://github.com/echodesigngrp/responsive-components</a></p>
+		
+		<div class="container">
+			<img src="photo_mobile.jpg" data-mobile-retina="photo_retina.jpg" data-small-tablet="photo_smalltablet.jpg" data-tablet="photo_tablet.jpg" data-desktop="photo_desktop.jpg" />
+		</div>
+		
+		<p style="text-align: center; font-size: 12px;">ResponsiveSlider.js is a product of <a href="http://echodesigngroup.com">Echo Design Group</a></p>
+	</body>
+	
+</html>
