@@ -28,7 +28,6 @@ var settings = {
 };
 ```
 
-
-
-**For demo, please see:**
+Demo
+----
 http://echodesigngrp.github.com/Responsive-Components/ResponsiveSlider
