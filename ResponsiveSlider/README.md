@@ -1,2 +1,2 @@
 **For demo, please see:**
-http://echodesigngrp.github.com/Responsive-Components/
+http://echodesigngrp.github.com/Responsive-Components/ResponsiveSlider
