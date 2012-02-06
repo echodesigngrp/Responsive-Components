@@ -18,7 +18,7 @@ jQuery.fn.responsiveImage = function (o) {
 		var el = $(this);
 		
 		for (var i=0, len=settings.steps.length; i<len; i++) {
-			if (settings.steps[i][1] <= width && el.attr('data-'+settings.steps[i][0]) && (settings.steps[i][2] !== undefined ? pixelRatio >= settings.steps[i][2] : false)) {
+			if (settings.steps[i][1] <= width && el.attr('data-'+settings.steps[i][0]) && (settings.steps[i][2] !== undefined ? pixelRatio >= settings.steps[i][2] : true)) {
 				el.attr('src', el.attr('data-'+settings.steps[i][0]));
 				break;
 			}
