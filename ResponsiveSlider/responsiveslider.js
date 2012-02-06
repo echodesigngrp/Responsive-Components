@@ -138,7 +138,12 @@ jQuery.fn.responsiveSlider = function (o) {
 				var slide = Math.abs(page);
 			}
 			else {
-				var slide = 0;
+				if (slider.settings.infinite) {
+					slide = slider.totalSlides - 1;
+				}
+				else {
+					slide = 0;
+				}
 			}
 			if (slide > slider.totalSlides - 1) {
 				if (slider.settings.infinite) {
