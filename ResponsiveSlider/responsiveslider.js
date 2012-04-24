@@ -3,6 +3,7 @@ jQuery.fn.responsiveSlider = function (o) {
 	
 	var settings = {
 		'slideClass': 'slide',
+		'sizeOfBox': false,
 		'infinite': false,
 		'navigation': true,
 		'pagination': false,
@@ -52,6 +53,9 @@ jQuery.fn.responsiveSlider = function (o) {
 			var nWidth = slider.el.width();
 			if (force || width != nWidth) {
 				width = nWidth;
+				
+				//resize slides if necessary
+				if (slider.settings.sizeOfBox) slider.slides.width(width);
 				
 				slider.recalculateTotalSlides();
 				slider.container.width(width * slider.totalSlides);
@@ -124,7 +128,7 @@ jQuery.fn.responsiveSlider = function (o) {
 		};
 		slider.snapToClosest = function () {
 			var width = slider.el.width();
-			var left = slider.container.offset().left;
+			var left = slider.container.position().left;
 			var page = left / width;
 			var remainder = (Math.abs(left) % width) / width;
 			
@@ -274,7 +278,7 @@ jQuery.fn.responsiveSlider = function (o) {
 				if ($(e.target).hasClass(slider.settings.slideClass)) {
 					touchStarted = true;
 					startX = e.touches[0].pageX;
-					startLeft = slider.container.offset().left;
+					startLeft = slider.container.position().left;
 				}
 			};
 			slider.el.get(0).ontouchmove = function (e) {
