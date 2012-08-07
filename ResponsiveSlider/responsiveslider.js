@@ -205,12 +205,13 @@ jQuery.fn.responsiveSlider = function (o) {
 		slider.resetLoop = function () {
 			if (slider.settings.automate) {
 				if (slider.loop) {
-					clearInterval(slider.loop);
+					clearTimeout(slider.loop);
 					slider.loop = null;
 				}
 				
-				slider.loop = setInterval(function () {
+				slider.loop = setTimeout(function () {
 					slider.next();
+					slider.resetLoop();
 				}, slider.settings.displayTime + slider.settings.animationTime);
 			}
 		};
