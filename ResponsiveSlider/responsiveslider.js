@@ -15,7 +15,7 @@ jQuery.fn.responsiveSlider = function (o) {
 		'nextText': 'next',
 		'previousText': 'previous',
 		'automate': false,
-		'displayTime': 5000,
+		'displayTime': 500,
 		'animationTime': 350,
 		'keyboard': false,
 		'touch': true,
@@ -159,7 +159,7 @@ jQuery.fn.responsiveSlider = function (o) {
 			}
 			slider.slideTo(slide);
 			
-			slider.resetLoop();
+			slider.start();
 		},
 		slider.insertBefore = function (slide) {
 			//add slide
@@ -202,19 +202,27 @@ jQuery.fn.responsiveSlider = function (o) {
 				});
 			}
 		};
-		slider.resetLoop = function () {
-			if (slider.settings.automate) {
-				if (slider.loop) {
-					clearTimeout(slider.loop);
-					slider.loop = null;
-				}
-				
-				slider.loop = setTimeout(function () {
-					slider.next();
-					slider.resetLoop();
-				}, slider.settings.displayTime + slider.settings.animationTime);
+		slider.start = function() {
+			slider.loop = setInterval(function() {
+				slider.next();
+				slider.stop();
+				slider.start();
+			}, slider.settings.displayTime + slider.settings.animationTime);
+		}
+		slider.stop = function() {
+			clearInterval(slider.loop);
+		}
+		
+		$(window).bind('blur', function() {
+			slider.stop();
+		});
+		
+		$(window).bind('focus', function() {			
+			if ( slider.settings.automate )
+			{
+				slider.start();
 			}
-		};
+		});
 		
 		//INITIALIZE SLIDER
 		
@@ -302,7 +310,7 @@ jQuery.fn.responsiveSlider = function (o) {
 		}
 		
 		if (slider.settings.automate) {
-			slider.resetLoop();
+			slider.start();
 		}
 		
 		//set size of container
