@@ -15,7 +15,7 @@ jQuery.fn.responsiveSlider = function (o) {
 		'nextText': 'next',
 		'previousText': 'previous',
 		'automate': false,
-		'displayTime': 500,
+		'displayTime': 5000,
 		'animationTime': 350,
 		'keyboard': false,
 		'touch': true,
